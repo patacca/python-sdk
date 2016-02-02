@@ -52,7 +52,7 @@ class MotaWordSDK(object):
 
     @property
     def user_agent(self):
-        return "Python Motaword SDK"
+        return "Python MotaWord SDK"
 
     def _generate_auth_header(self):
         auth_string = '{client_id}:{client_secret}'.format(

@@ -123,7 +123,7 @@ class Projects(BaseController):
 
         return self._request_json(path, 'post', data=data)
 
-    def progress(self, project_id):
+    def get_progress(self, project_id):
         """
         Get the progress of an already launched project
 

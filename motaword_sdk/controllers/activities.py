@@ -54,7 +54,7 @@ class Activities(BaseController):
 
         return self._request_json(path, 'post', data={'comment': comment})
 
-    def comment_list(self, project_id, page=1, per_page=10):
+    def list_comments(self, project_id, page=1, per_page=10):
         """
         Get a list of activity comments throughout the whole project.
 
@@ -70,7 +70,7 @@ class Activities(BaseController):
         return self._request_json(path,
                                   params={'page': page, 'per_page': per_page})
 
-    def activity_comments(self, activity_id, project_id):
+    def list_activity_comments(self, activity_id, project_id):
         """
         Get a list of comments belonging to this activity.
 
