@@ -28,6 +28,8 @@ class BaseController(object):
 
         Returns: requests.Response
         """
+        path = path.rstrip('/')
+
         headers = {
             "Authorization": self.sdk.auth_header,
             "user-agent": self.sdk.user_agent,

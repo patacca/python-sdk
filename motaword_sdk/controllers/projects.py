@@ -148,7 +148,7 @@ class Projects(BaseController):
         """
         path = '/projects/{project_id}/package/{language}'.format(
             project_id=project_id,
-            language=language).rstrip('/')
+            language=language)
 
         if async:
             return self._request_json(path, 'post', params={'async': async})
@@ -184,6 +184,6 @@ class Projects(BaseController):
         Returns: mixed response from the API call
         """
         path = '/projects/{project_id}/download/{language}'.format(
-            project_id=project_id, language=language).rstrip('/')
+            project_id=project_id, language=language)
 
         return self._request(path)
