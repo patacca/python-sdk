@@ -83,11 +83,13 @@ Packaging flow
 """
 # Package the latest translations and get them ready for download.
 package = sdk.projects.package_translation(project_id)
+print(package)
 is_packaged = False
 
 # Check the packaging process. When packaging is "completed", then we can download it.
 while not is_packaged:
     package_status = sdk.projects.check_package_status(project_id, package['key'])
+    print(package_status)
 
     if package_status['status'] == 'completed':
         is_packaged = True
@@ -97,6 +99,7 @@ while not is_packaged:
 # Download the recently packaged translations.
 if is_packaged:
     download = sdk.projects.download_translations(project_id)
+    print(download)
 
 """
 Alternative packaging flow
@@ -105,12 +108,18 @@ Alternatively, you can call createPackage synchronously. It will package the mos
 and return the download() response. This call will take longer than usual as it waits for packaging to be complete.
 """
 download = sdk.projects.package_translation(project_id, async=0)
+print(download)
 
 
 """
 Global style guide and glossary for corporate accounts
 """
-sdk.global_files.update_style_guide(os.path.join(FILES_DIR, 'styleguide.pdf'))
-sdk.global_files.update_glossary(os.path.join(FILES_DIR, 'glossary.xlsx'))
-sdk.global_files.download_style_guide()
-sdk.global_files.download_glossary()
+global_style_guide = sdk.global_files.update_style_guide(os.path.join(FILES_DIR, 'styleguide.pdf'))
+global_glossary = sdk.global_files.update_glossary(os.path.join(FILES_DIR, 'glossary.xlsx'))
+print(global_style_guide)
+print(global_glossary)
+
+global_style_guide = sdk.global_files.download_style_guide()
+global_glossary = sdk.global_files.download_glossary()
+print(global_style_guide)
+print(global_glossary)
