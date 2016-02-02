@@ -82,12 +82,12 @@ print(progress)
 Packaging flow
 """
 # Package the latest translations and get them ready for download.
-package = sdk.packaging.package_translation(project_id)
+package = sdk.projects.package_translation(project_id)
 is_packaged = False
 
 # Check the packaging process. When packaging is "completed", then we can download it.
 while not is_packaged:
-    package_status = sdk.packaging.check_status(project_id, package['key'])
+    package_status = sdk.projects.check_package_status(project_id, package['key'])
 
     if package_status['status'] == 'completed':
         is_packaged = True
@@ -96,7 +96,7 @@ while not is_packaged:
 
 # Download the recently packaged translations.
 if is_packaged:
-    download = sdk.packaging.download_translations(project_id)
+    download = sdk.projects.download_translations(project_id)
 
 """
 Alternative packaging flow
@@ -104,7 +104,7 @@ Alternative packaging flow
 Alternatively, you can call createPackage synchronously. It will package the most recent translations
 and return the download() response. This call will take longer than usual as it waits for packaging to be complete.
 """
-download = sdk.packaging.package_translation(project_id, async=0)
+download = sdk.projects.package_translation(project_id, async=0)
 
 
 """

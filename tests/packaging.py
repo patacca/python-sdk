@@ -10,11 +10,11 @@ def test_integration():
 
     sdk.projects.launch(project_id)
 
-    result = sdk.packaging.package_translation(project_id, 'ru')
+    result = sdk.projects.package_translation(project_id, 'ru')
     assert 'key' in result
     key = result['key']
 
-    result = sdk.packaging.check_status(project_id, key)
+    result = sdk.projects.check_package_status(project_id, key)
     assert result['status'] in ['packaging', 'completed']
 
 

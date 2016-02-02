@@ -36,7 +36,6 @@ class MotaWordSDK(object):
         self.style_guides = controllers.StyleGuides(self)
         self.glossaries = controllers.Glossaries(self)
         self.activities = controllers.Activities(self)
-        self.packaging = controllers.Packaging(self)
         self.global_files = controllers.GlobalFiles(self)
         self.account = controllers.Account(self)
 
