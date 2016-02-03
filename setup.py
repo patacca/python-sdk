@@ -2,8 +2,11 @@ from setuptools import setup
 
 setup(
     name='motaword',
-    packages=['motaword_sdk'],
-    version='0.9.0',
+    packages=[
+        'motaword_sdk',
+        'motaword_sdk.controllers',
+    ],
+    version='0.9.1',
     description='Motaword Python SDK',
     long_description='Use MotaWord API to post '
                      'and track your translation projects.',
