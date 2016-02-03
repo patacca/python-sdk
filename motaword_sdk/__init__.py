@@ -3,8 +3,8 @@ from __future__ import unicode_literals
 import base64
 import requests
 
-from . import controllers
-from .exceptions import APIException
+from motaword_sdk import controllers
+from motaword_sdk.exceptions import APIException
 
 
 class MotaWordSDK(object):
