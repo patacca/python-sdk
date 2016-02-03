@@ -9,6 +9,39 @@ for better compliance and usability with MotaWord API.
 For comprehensive examples, check `/examples` folder. You only need to enter your API **CLIENT_ID** and **CLIENT_SECRET**
 , then you are good to go with API methods.
 
+# Simple example
+```python
+from motaword_sdk import MotaWordSDK
+
+"""
+Authorize using your CLIENT_ID and CLIENT_SECRET
+Here is how to do that https://www.motaword.com/developer
+"""
+sdk = MotaWordSDK(CLIENT_ID, CLIENT_SECRET, debug=True)
+
+"""
+Create a new project
+"""
+project = sdk.projects.create('en-US', ['fr', 'ru', 'tr'])
+project_id = project['id']
+
+"""
+Get a list of projects
+"""
+project_list = sdk.projects.list(project_id)
+print(project_list)
+
+"""
+Upload a new document
+
+Returns the updated list of documents in the project.
+"""
+documents = sdk.documents.upload(
+    project_id,
+    'example_file.txt',
+)
+print(documents)
+```
 
 # How To Receive API Credentials:
 Just go to https://www.motaword.com/developer and create a developer account. Once you confirm your email address, you will
