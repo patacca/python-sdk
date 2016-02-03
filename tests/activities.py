@@ -16,7 +16,7 @@ def test_integration():
     activity_list = sdk.activities.list(project_id)
     isinstance(activity_list['activities'], list)
 
-    project_comment_list = sdk.activities.comment_list(project_id)
+    project_comment_list = sdk.activities.list_comments(project_id)
     isinstance(project_comment_list['comments'], list)
 
 
