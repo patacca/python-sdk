@@ -26,7 +26,7 @@ project_id = project['id']
 """
 Get a list of projects
 """
-project_list = sdk.documents.list(project_id)
+project_list = sdk.projects.list(project_id)
 print(project_list)
 
 """
