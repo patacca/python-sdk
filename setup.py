@@ -6,7 +6,7 @@ setup(
         'motaword_sdk',
         'motaword_sdk.controllers',
     ],
-    version='0.9.1',
+    version='0.9.2',
     description='Motaword Python SDK',
     long_description='Use MotaWord API to post '
                      'and track your translation projects.',
