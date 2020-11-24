@@ -135,14 +135,14 @@ class Projects(BaseController):
         path = '/projects/{project_id}/progress'.format(project_id=project_id)
         return self._request_json(path)
 
-    def package_translation(self, project_id, language='', async=1):
+    def package_translation(self, project_id, language='', doAsync=1):
         """
         Package the translation project, make it ready to be downloaded.
 
         Args:
             project_id: int
             language: str
-            async: int
+            doAsync: int
 
         Returns: mixed response from the API call
         """
@@ -150,10 +150,10 @@ class Projects(BaseController):
             project_id=project_id,
             language=language)
 
-        if async:
-            return self._request_json(path, 'post', params={'async': async})
+        if doAsync:
+            return self._request_json(path, 'post', params={'async': doAsync})
         else:
-            return self._request(path, 'post', params={'async': async})
+            return self._request(path, 'post', params={'async': doAsync})
 
     def check_package_status(self, project_id, key):
         """

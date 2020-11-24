@@ -54,12 +54,9 @@ class MotaWordSDK(object):
         return "Python MotaWord SDK"
 
     def _generate_auth_header(self):
-        auth_string = '{client_id}:{client_secret}'.format(
-            client_id=self._client_id,
-            client_secret=self._client_secret)
-
+        auth_string = f'{self._client_id}:{self._client_secret}'
         headers = {
-            "Authorization": "Basic " + base64.b64encode(auth_string),
+            "Authorization": "Basic " + base64.b64encode(auth_string.encode('utf-8')).decode('utf-8'),
             "user-agent": self.user_agent,
             "accept": "application/json"
         }
